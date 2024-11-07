@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "8dec3b221e120d5bf65bdd168e9c7310"
+name = "Free Shipping Manager"
+handle = "free-shipping-manager"
+application_url = "https://ethics-left-aquarium-ethernet.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "orayon-testing-store.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,read_shipping,write_products,write_shipping"
+
+[auth]
+redirect_urls = [
+  "https://ethics-left-aquarium-ethernet.trycloudflare.com/auth/callback",
+  "https://ethics-left-aquarium-ethernet.trycloudflare.com/auth/shopify/callback",
+  "https://ethics-left-aquarium-ethernet.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
